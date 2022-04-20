@@ -1,1 +1,7 @@
+[ubuntu]
 client
+[redhat]
+client1 
+[linux:children]
+ubuntu
+redhat
