@@ -24,6 +24,7 @@
       package:
         name:
           - tree
+          - httpd
         state: present
     
       
