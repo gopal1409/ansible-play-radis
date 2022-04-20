@@ -5,8 +5,8 @@
   hosts: client
 #vars: variable that will apply to the play
   vars: #is a keywoad
-    motd_centos: "Welcome to centos ansible rocks\n"
-    motd_ubuntu: "Welcome to ubunut ansible rock\n"
+    motd_centos: "Welcome to centos ansible rocks1\n"
+    motd_ubuntu: "Welcome to ubunut ansible rock1\n"
   tasks:
     - name: configure an motd message in centos system
       copy:
