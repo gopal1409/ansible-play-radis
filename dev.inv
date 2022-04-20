@@ -1,6 +1,5 @@
 [ubuntu]
 client
-client3
 [redhat]
 client1 
 [linux:children]
