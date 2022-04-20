@@ -21,7 +21,9 @@
         dest: /etc/motd
       when: ansible_distribution == "Ubuntu" 
     - name: install a package
-      apt:
-        name: tree
+      package:
+        name:
+          - tree
+          - ntpdate
         state: present
-        update_cache: yes
+      
