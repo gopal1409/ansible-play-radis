@@ -2,20 +2,20 @@
 ---
 - #this minus is required in yaml it indicate list of items. Playbook contains a list of play and every play will be a dictionary
 #host: where you want to run your playbook
-hosts: client
+  hosts: client
 #vars: variable that will apply to the play
-vars: #is a keywoad
-  motd_centos: "Welcome to centos ansible rocks\n"
-  motd_ubuntu: "Welcome to ubunut ansible rock\n"
-tasks:
-  - name: configure an motd message in centos system
-    copy:
-      content: "{{ motd_centos }}"
-      dest: /etc/motd
-    when: ansible_distribution == "Redhat"
+  vars: #is a keywoad
+    motd_centos: "Welcome to centos ansible rocks\n"
+    motd_ubuntu: "Welcome to ubunut ansible rock\n"
+  tasks:
+    - name: configure an motd message in centos system
+      copy:
+        content: "{{ motd_centos }}"
+        dest: /etc/motd
+      when: ansible_distribution == "Redhat"
   
-  - name: configure motd message in ubunut
-    copy:
-      content: "{{ motd_ubuntu }}"
-      dest: /etc/motd
-    when: ansible_distribution == "Ubuntu" 
+    - name: configure motd message in ubunut
+      copy:
+        content: "{{ motd_ubuntu }}"
+        dest: /etc/motd
+      when: ansible_distribution == "Ubuntu" 
