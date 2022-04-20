@@ -2,7 +2,7 @@
 ---
 - #this minus is required in yaml it indicate list of items. Playbook contains a list of play and every play will be a dictionary
 #host: where you want to run your playbook
-  hosts: linux,ubuntu,redhat
+  hosts: linux
   
 #vars: variable that will apply to the play
   vars: #is a keywoad
@@ -20,3 +20,7 @@
         content: "{{ motd_ubuntu }}"
         dest: /etc/motd
       when: ansible_distribution == "Ubuntu" 
+    - name: install a package
+      apt:
+        name: tree
+        state: present
