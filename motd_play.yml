@@ -24,7 +24,6 @@
       package:
         name:
           - tree
-          - apache
         state: present
     
       
