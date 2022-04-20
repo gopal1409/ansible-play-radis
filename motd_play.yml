@@ -13,18 +13,26 @@
       copy:
         content: "{{ motd_centos }}"
         dest: /etc/motd
+      notify: MOTD Change in Redhat   
       when: ansible_distribution == "RedHat"
-  
+      
     - name: configure motd message in ubunut
       copy:
         content: "{{ motd_ubuntu }}"
         dest: /etc/motd
+      notify: MOTD Change in Ubuntu 
       when: ansible_distribution == "Ubuntu" 
     - name: install a package
       package:
         name:
           - tree
-          - httpd
         state: present
+  handlers:
+    - name: MOTD Change in Redhat 
+      debug:
+        msg: motd change in redhat 
+    - name: MOTD Change in Ubuntu
+      debug:
+        msg: motd changes in ubuntu
     
       
