@@ -24,6 +24,7 @@
       package:
         name:
           - tree
-          - ntpdate
+          - ntp
         state: present
+    
       
