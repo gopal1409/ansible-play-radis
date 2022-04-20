@@ -24,7 +24,7 @@
       package:
         name:
           - tree
-          - ntp
+          - apache
         state: present
     
       
