@@ -11,9 +11,9 @@
   tasks:
     - name: set a fact
       set_fact:
-        our_fact: Ansible distribution!
-        ansible_distribution: "{{ ansible_distribution | upper }}"
-        ansible_distribution_version: "{{ ansible_distribution_version }}"
+        our_fact: Show me all the Linux Version
+        ansible_distribution: "{{ansible_distribution | upper}}"
+        ansible_distribution_version: "{{ansible_distribution_version}}"
     - name: show our fact
       debug:
         msg: "{{ our_fact }}"
