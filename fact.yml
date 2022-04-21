@@ -11,9 +11,10 @@
   tasks:
     - name: set a fact
       set_fact:
-        our_fact: Ansible Rocks!
-        ansible_distribution: "{{ansible_distribution | upper }}"
-    - name: show our face
+        our_fact: Ansible distribution!
+        ansible_distribution: "{{ ansible_distribution | upper }}"
+        ansible_distribution_version: "{{ ansible_distribution_version }}"
+    - name: show our fact
       debug:
         msg: "{{ our_fact }}"
     - name: show ansible distribution 
