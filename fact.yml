@@ -23,4 +23,14 @@
     - name: print test
       debug:
         msg: "{{test.stdout}}"
-      
+    - name: check if apache is running or not
+      shell: if ps -eaf| grep 'httpd'| grep -v grep > /dev/null; then echo 'process running';else echo 'process not running'
+      register: app_proc_check
+    - name: decision point to start patching
+      fail: 
+        msg: "{{inventory_hostname}}"
+      when: app_proc_check.stdout = "process running"
+    - name: update the kernal
+      yum:
+        name: kernal 5
+        state: present
