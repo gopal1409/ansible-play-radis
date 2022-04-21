@@ -19,5 +19,8 @@
       yum:
         name: patch 
         state: present 
-      when: test is changed
+      when: test is skipped
+    - name: print test
+      debug:
+        msg: test
       
