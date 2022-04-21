@@ -22,5 +22,5 @@
       when: test is skipped
     - name: print test
       debug:
-        msg: test
+        var: test
       
