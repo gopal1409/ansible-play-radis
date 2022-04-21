@@ -13,6 +13,7 @@
       user:
         name: "{{ item.key }}"
         comment: "{{item.value.full_name}}"
+        state: absent
       with_dict:
       #with_dic you can define key and key value
         james: #this is also an key
@@ -30,3 +31,14 @@
       with_nested:
         - [james, lily, kim]
         - [photos, movies, document]
+    - name: create authorized key 
+      authorized_keys:
+        user: james
+        key: "{item}"
+      with_files:
+        - /root/.ssh/id_rsa.pub
+    - name: create sequence directory
+      files: 
+        dest: "/home/james/gopal_{{item}}"
+        state: directory
+      with_sequence: start=0 end=100 stride=10
