@@ -2,23 +2,14 @@
 ---
 - #this minus is required in yaml it indicate list of items. Playbook contains a list of play and every play will be a dictionary
 #host: where you want to run your playbook
-  hosts: linux
+  hosts: client1
   
 #vars: variable that will apply to the play
   vars: #is a keywoad
     motd_centos: "Welcome to Redhat ansible rocks2\n"
     motd_ubuntu: "Welcome to ubunut ansible rock2\n"
   tasks:
-    - name: set a fact
-      set_fact:
-        1_fact: Show me all the Linux Version
-        ansible_distribution: "{{ansible_distribution | upper}}"
-        
-    - name: show our fact
-      debug:
-        msg: this is the version "{{ 1_fact }}"
-    - name: show ansible distribution 
-      debug:
-        msg: "{{ansible_distribution}}"
-        
-      
+    - name: fetch /etc/redhat-release
+      fetch:
+        src: /etc/redhat-release
+        dest: /tmp/redhat-release 
