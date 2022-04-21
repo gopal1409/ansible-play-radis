@@ -9,7 +9,15 @@
     motd_centos: "Welcome to Redhat ansible rocks2\n"
     motd_ubuntu: "Welcome to ubunut ansible rock2\n"
   tasks:
-    - name: fetch /etc/redhat-release
-      fetch:
-        src: /etc/redhat-release
-        dest: /tmp/redhat-release 
+    - name: Exploring register
+      command: hostname -s
+      when:
+        - ansible_distribution == 'RedHat' 
+        - ansible_distribution_major_version | int >= 8
+      register: test
+    - name: install patch when changed
+      yum:
+        name: patch 
+        state: present 
+      when: test is changed
+      
