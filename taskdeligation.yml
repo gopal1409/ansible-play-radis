@@ -23,3 +23,12 @@
       with_together:
         - [~/.ssh/client_id_rsa,~/.ssh/client_id_rsa.pub]
         - ["0600", "0644"]
+- 
+  host: client
+  gather_facts: False
+  tasks:
+    - name: Add public key to the client authorized_key file
+      authorized_key:
+        user: root 
+        state: present 
+        key: "{{lookup('file,'~/.ssh/client_id_rsa.pub')}}"
