@@ -24,7 +24,7 @@
         - [~/.ssh/client_id_rsa,~/.ssh/client_id_rsa.pub]
         - ["0600", "0644"]
 - 
-  host: client
+  hosts: client
   gather_facts: False
   tasks:
     - name: Add public key to the client authorized_key file
