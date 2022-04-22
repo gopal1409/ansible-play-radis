@@ -10,4 +10,16 @@
     - name: generate an openssh key for ubuntu 
       openssh_keypair:
         path: ~/.ssh/client_id_rsa
-        
+  ######Host where our play will transfer private and public key
+  hosts: client1
+  gather_facts: False 
+  tasks: 
+    - name: copy the pub and pvt key to client1 
+      copy: 
+        owner: root 
+        src: "{{ item.0 }}"
+        dest: "{{ item.0 }}"
+        mode: "{{ item.1 }}" 
+      with_together:
+        - [~/.ssh/client_id_rsa,~/.ssh/client_id_rsa.pub]
+        - ["0600", "0644"]
