@@ -10,8 +10,9 @@
       openssh_keypair:
         path: ~/.ssh/client_id_rsa
   ######Host where our play will transfer private and public key
+-
   hosts: client1
-  gather_facts: false
+  gather_facts: False
   tasks: 
     - name: copy the pub and pvt key to client1 
       copy: 
