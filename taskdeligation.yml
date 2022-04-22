@@ -10,3 +10,4 @@
     - name: generate an openssh key for ubuntu 
       openssh_keypair:
         path: ~/.ssh/client_id_rsa
+        
