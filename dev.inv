@@ -1,4 +1,4 @@
-ubuntu-c ansible_connection: localhost
+ubuntu-c ansible_connection: local
 [ubuntu]
 client
 [redhat]
