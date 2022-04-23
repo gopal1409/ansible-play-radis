@@ -20,7 +20,7 @@
     #    https_proxy: "http://example.com:3128"
     - name: unarchive
       unarchive:
-        src: "{{ myurl }}"
+        src: /tmp/ansible-2.9.9.tar.gz
         dest: "{{ mydest }}"
 
 
