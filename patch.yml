@@ -23,7 +23,7 @@
     - debug: msg="{{ curr_ker.stdout }}"
     - name: intiatiating patching
       apt:
-        name: kernal 
+        name: kernel 
         state: latest
       register: apt_update 
     - debug: msg="kernal has been update"
