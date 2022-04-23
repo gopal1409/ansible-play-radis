@@ -1,9 +1,9 @@
 ansiblemaster ansible_connection=local
 [bastion]
 jump
-[endpoint]
+[nodes]
 client 
-[endpoint:vars]
+[nodes:vars]
 ansible_ssh_common_args='-o ProxyCommand="ssh -p 22 -W %h:%p -q root@jump"'
 [linux:children]
 endpoint
