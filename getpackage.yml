@@ -6,7 +6,7 @@
   
 #vars: variable that will apply to the play
   vars: #is a keywoad
-    myurl: "https://releases.ansible.com/ansible/ansible-latest.tar.gz"
+    myurl: "https://releases.ansible.com/ansible/ansible-2.9.9.tar.gz.sha"
     mycrc: "sha256:https://releases.ansible.com/ansible/ansible-latest.tar.gz.sha"
     mydest: "/tmp/"
   tasks:
