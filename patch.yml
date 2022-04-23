@@ -10,7 +10,7 @@
   tasks:  
     - name: install apache
       shell: if ps -eaf| egrep 'apache2'| grep -v grep > /dev/null; then echo 'process_running'; else echo 'process_not_running'; fi
-      ignore_erros: true 
+      ignore_errors: true 
       register: app_proc_check
     - debug: msg="{{ app_proc_check.stdout }}"
     - name: current kernal version 
