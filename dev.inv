@@ -1,6 +1,7 @@
 ansiblemaster ansible_connection=local
 [bastion]
 jump
+bastion
 [endpoint]
 client 
 [endpoint:vars]
