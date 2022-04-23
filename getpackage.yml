@@ -18,4 +18,9 @@
         mode: 0644
    #   environment:
     #    https_proxy: "http://example.com:3128"
+    - name: unarchive
+      unarchive:
+        src: "{{ myurl }}"
+        dest: "{{ mydest }}"
+
 
