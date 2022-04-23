@@ -23,8 +23,8 @@
     - debug: msg="{{ curr_ker.stdout }}"
     - name: intiatiating patching
       apt:
-        name: kernel 
-        state: latest
+        upgrade: yes 
+        update_cache: yes
       register: apt_update 
     - debug: msg="kernal has been update"
     - name: check if reboot is required 
