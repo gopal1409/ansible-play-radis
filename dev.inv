@@ -1,8 +1,9 @@
-ubuntu-c ansible_connection=local
-[ubuntu]
-client
-[redhat]
-client1 
+ansiblemaster ansible_connection=local
+[bastion]
+jump
+[endpoint]
+client 
 [linux:children]
-ubuntu
-redhat
+endpoint
+jump 
+
