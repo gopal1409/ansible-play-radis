@@ -16,6 +16,7 @@
     - name: Decisiong point to start patching
       fail: 
         msg="{{inventory_hostname}} having running appliucation please stop it then attempt patching"
+      when: app_proc_check.stdout == "process_running"
     - name: current kernal version 
       shell: uname -r 
       register: curr_ker
