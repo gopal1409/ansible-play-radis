@@ -4,7 +4,7 @@ jump
 [endpoint]
 client 
 [endpoint:vars]
-ansible_ssh_common_args='-o StrictHostKeyChecking=no -o ProxyCommand="ssh -p 22 -W %h:%p -q root@jump"'
+ansible_ssh_common_args='-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o ProxyCommand="ssh -p 22 -W %h:%p -q root@jump"'
 [linux:children]
 endpoint
 bastion
