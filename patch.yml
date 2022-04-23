@@ -21,3 +21,26 @@
       shell: uname -r 
       register: curr_ker
     - debug: msg="{{ curr_ker.stdout }}"
+    - name: intiatiating patching
+      apt:
+        name: kernal 
+        state: latest
+      register: apt_update 
+    - debug: msg="kernal has been update"
+    - name: check if reboot is required 
+      shell: kernel_new=$(uname -msr | head -1| awk '{print $1}'| sed 's/kernel-//g'); kernel_now=$(uname -r); if [[ $kernel_new != $kernel_now ]]; then echo "reboot is required"; else echo "reboot is not required"; fi
+      ignore_errors:
+      register: reboot_check 
+    - debug: msg="{{reboot_check.stdout}}"
+    - name: Reboot the system after patching
+      shell: "shutdown -r now"
+      async: 1
+      poll: 0
+    - name: wait for the system to come up 
+      pause:
+        minutes: 1
+    - name: new kernal version 
+      shell: uname -r 
+      register: new_ker
+    - debug: msg="new kernal version is {{new_ker.stdout}} and old kernal version was {{curr_ker.stdout}}"
+    
