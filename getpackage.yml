@@ -7,7 +7,7 @@
 #vars: variable that will apply to the play
   vars: #is a keywoad
     myurl: "https://releases.ansible.com/ansible/ansible-latest.tar.gz"
-    mycrc: "https://releases.ansible.com/ansible/ansible-latest.tar.gz.sha"
+    mycrc: "sha256:https://releases.ansible.com/ansible/ansible-latest.tar.gz.sha"
     mydest: "/tmp/"
   tasks:
     - name: download file with proxy 
