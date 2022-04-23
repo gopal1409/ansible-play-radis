@@ -5,5 +5,5 @@ jump
 client 
 [linux:children]
 endpoint
-jump 
+bastion
 

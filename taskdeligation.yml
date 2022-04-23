@@ -3,7 +3,7 @@
 - #this minus is required in yaml it indicate list of items. Playbook contains a list of play and every play will be a dictionary
 #host: where you want to run your playbook
   hosts: ansiblemaster
-  gather_facts: no
+  gather_facts: False
 #vars: variable that will apply to the play
   tasks:
     - name: generate an openssh key for ubuntu 
@@ -12,9 +12,9 @@
   ######Host where our play will transfer private and public key
 -
   hosts: jump
-  gather_facts: no
+  gather_facts: False
   tasks: 
-    - name: copy the pub and pvt key to client1 
+    - name: copy the pub and pvt key to 
       copy: 
         owner: root 
         src: "{{ item.0 }}"
