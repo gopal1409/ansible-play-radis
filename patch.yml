@@ -3,7 +3,7 @@
 #host: where you want to run your playbook
   hosts: jump
   
-#vars: variable that will apply to the play
+#vars: variable that will apply to the playhjhhh
   vars: #is a keywoad
     motd_centos: "Welcome to Redhat ansible rocks2\n"
     motd_ubuntu: "Welcome to ubunut ansible rock2\n"
